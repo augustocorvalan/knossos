@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 const InputScreen = ({ onInputChange, onInputSubmit }) => {
     return (
         <div>
@@ -7,5 +9,10 @@ const InputScreen = ({ onInputChange, onInputSubmit }) => {
         </div>
     )
 }
+
+InputScreen.propTypes = {
+    onInputChange: PropTypes.func,
+    onInputSubmit: PropTypes.func
+  };
 
 export default InputScreen
