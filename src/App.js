@@ -25,6 +25,7 @@ function App() {
   const [currentScreen, setCurrentScreen] = useState(SCREENS.INPUT)
   const [currentInput, setCurrentInput] = useState("")
   const [generationModel, setGenerationModel] = useState(null)
+  const [savedOutput, setSavedOutput] = useState([])
 
   /**
    * @private handleInputChange
@@ -35,20 +36,27 @@ function App() {
     setCurrentInput(value)
   }
   /**
-   * @private handleInputChange
+   * @private handleInputSubmit 
    */
   const handleInputSubmit = () => {
-    console.log("!!! current input", currentInput)
     /* create a new model out of the current user input */
     const model = getModel(currentInput)
     setGenerationModel(model)
     /* proceed to generation page */
     setCurrentScreen(SCREENS.GENERATION)
   }
+  /**
+   * @private saveOutput 
+   */
+  const saveOutput = (text) => setSavedOutput([text, ...savedOutput])
   return (
     <div className="App">
       {currentScreen === SCREENS.INPUT && <InputScreen onInputChange={handleInputChange} onInputSubmit={handleInputSubmit} /> }
-      {currentScreen === SCREENS.GENERATION && <GenerationScreen /> }
+      {currentScreen === SCREENS.GENERATION && <GenerationScreen generator={() => generationModel.generate()} onSave={saveOutput} /> }
+      {/* <SavedOutputScreen savedOutput={savedOutput} /> */}
+      <ul>
+        {savedOutput.map((output, index) => <li key={`${output}${index}`}>{savedOutput}</li>)}
+      </ul>
     </div>
   );
 }
