@@ -3,8 +3,10 @@ import PropTypes from 'prop-types';
 const InputScreen = ({ defaultValue, onInputChange, onInputSubmit }) => {
     return (
         <div>
-            <h2>Input Screen</h2>
-            <textarea cols="50" rows="50" onChange={onInputChange} defaultValue={defaultValue}></textarea>
+            <h3>input texts</h3>
+            <div>
+                <textarea cols="35" rows="35" onChange={onInputChange} defaultValue={defaultValue}></textarea>
+            </div>
             <button onClick={onInputSubmit}>Make Model</button>
         </div>
     )
