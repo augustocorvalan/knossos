@@ -12,6 +12,7 @@ const SCREENS = {
   INPUT: "INPUT",
   GENERATION: "GENERATION"
 }
+const HOME_SCREEN = SCREENS.INPUT
 
 function getModel(input) {
   const model = new Markov(); // Create a Markov chain
@@ -23,7 +24,7 @@ function getModel(input) {
 }
 
 function App() {
-  const [currentScreen, setCurrentScreen] = useState(SCREENS.INPUT)
+  const [currentScreen, setCurrentScreen] = useState(HOME_SCREEN)
   const [currentInput, setCurrentInput] = useState("")
   const [generationModel, setGenerationModel] = useState(null)
   const [savedOutput, setSavedOutput] = useState([])
@@ -54,6 +55,7 @@ function App() {
   }
   return (
     <div className="App">
+      {currentScreen !== HOME_SCREEN && <button onClick={() => setCurrentScreen(HOME_SCREEN)}>Home</button>}
       {currentScreen === SCREENS.INPUT && <InputScreen defaultValue={currentInput} onInputChange={handleInputChange} onInputSubmit={handleInputSubmit} /> }
       {currentScreen === SCREENS.GENERATION && <GenerationScreen generator={() => generationModel.getSentence()} onSave={saveOutput} /> }
       {/* <SavedOutputScreen savedOutput={savedOutput} /> */}
