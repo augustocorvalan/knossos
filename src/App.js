@@ -54,7 +54,7 @@ function App() {
   }
   return (
     <div className="App">
-      {currentScreen === SCREENS.INPUT && <InputScreen onInputChange={handleInputChange} onInputSubmit={handleInputSubmit} /> }
+      {currentScreen === SCREENS.INPUT && <InputScreen defaultValue={currentInput} onInputChange={handleInputChange} onInputSubmit={handleInputSubmit} /> }
       {currentScreen === SCREENS.GENERATION && <GenerationScreen generator={() => generationModel.getSentence()} onSave={saveOutput} /> }
       {/* <SavedOutputScreen savedOutput={savedOutput} /> */}
       <ul>
