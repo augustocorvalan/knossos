@@ -6,6 +6,7 @@ import GenerationScreen from "./GenerationScreen"
 import logo from './logo.svg';
 import './App.css';
 import SavedOutputScreen from "./SavedOutputScreen"
+import Header from "./Header"
 
 
 const SCREENS = {
@@ -55,6 +56,7 @@ function App() {
   }
   return (
     <div className="App">
+      <Header />
       {currentScreen !== HOME_SCREEN && <button onClick={() => setCurrentScreen(HOME_SCREEN)}>Home</button>}
       {currentScreen === SCREENS.INPUT && <InputScreen defaultValue={currentInput} onInputChange={handleInputChange} onInputSubmit={handleInputSubmit} /> }
       {currentScreen === SCREENS.GENERATION && <GenerationScreen generator={() => generationModel.getSentence()} onSave={saveOutput} /> }
