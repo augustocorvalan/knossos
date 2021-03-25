@@ -1,6 +1,8 @@
 import { useState } from "react"
 import PropTypes from 'prop-types';
 
+import './GenerationScreen.css';
+
 const GenerationScreen = ({ generator, onSave }) => {
     const [currentlyGenerated, setCurrentlyGenerated] = useState("")
 
@@ -14,9 +16,7 @@ const GenerationScreen = ({ generator, onSave }) => {
 
     return (
         <div>
-            <h2>Generation Screen</h2>
-            <h3>Generated:</h3>
-            <p>{currentlyGenerated}</p>
+            <p className="generated-text">{currentlyGenerated}</p>
             <button onClick={generateNewText}>Generate</button>
             <button onClick={() => onSave(currentlyGenerated)}>Save</button>
         </div>
