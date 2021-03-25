@@ -9,6 +9,13 @@ Inspired by the Jorge Luis Borges' story _The Garden of Forking Paths_, Knossos 
 
 The webapp is broken into two screens, one for inputting base text and the other for new text generation. Ideally these would be in the same page but since part of this initial project is meant to showcase multiple page webapps for a pairing interview so the multi-page structure is a good place to start. 
 
+## markov generator
+
+
+I had trouble finding a reliably mantained Javascript port of wonderful Python `markovify` [package](https://pypi.org/project/markovify/).
+
+Currently relies on Daniel Schiffman's [implementation](https://pypi.org/project/markovify/). This implementation is missing some key features (such being able to adjust model weights) but is concise, well-documented and plain to reason with and extend.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
