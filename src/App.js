@@ -6,6 +6,7 @@ import logo from './logo.svg';
 import './App.css';
 import MarkovGenerator from "./utils/MarkovGenerator"
 
+import Markov from "ez-markov"
 
 const SCREENS = {
   INPUT: "INPUT",
@@ -13,10 +14,10 @@ const SCREENS = {
 }
 
 function getModel(input) {
-  const model = new MarkovGenerator(); // Create a Markov chain
+  const model = new Markov(); // Create a Markov chain
 
   // Teach the chain some text.
-  model.feed(input);
+  model.addCorpus(input);
 
   return model
 }
@@ -48,14 +49,16 @@ function App() {
   /**
    * @private saveOutput 
    */
-  const saveOutput = (text) => setSavedOutput([text, ...savedOutput])
+  const saveOutput = (text) => {
+    setSavedOutput([text, ...savedOutput])
+  }
   return (
     <div className="App">
       {currentScreen === SCREENS.INPUT && <InputScreen onInputChange={handleInputChange} onInputSubmit={handleInputSubmit} /> }
-      {currentScreen === SCREENS.GENERATION && <GenerationScreen generator={() => generationModel.generate()} onSave={saveOutput} /> }
+      {currentScreen === SCREENS.GENERATION && <GenerationScreen generator={() => generationModel.getSentence()} onSave={saveOutput} /> }
       {/* <SavedOutputScreen savedOutput={savedOutput} /> */}
       <ul>
-        {savedOutput.map((output, index) => <li key={`${output}${index}`}>{savedOutput}</li>)}
+        {savedOutput.map((output, index) => <li key={`${output}${index}`}>{output}</li>)}
       </ul>
     </div>
   );
