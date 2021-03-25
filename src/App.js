@@ -1,12 +1,12 @@
 import { useState } from "react"
+import Markov from "ez-markov"
 
 import InputScreen from "./InputScreen"
 import GenerationScreen from "./GenerationScreen"
 import logo from './logo.svg';
 import './App.css';
-import MarkovGenerator from "./utils/MarkovGenerator"
+import SavedOutputScreen from "./SavedOutputScreen"
 
-import Markov from "ez-markov"
 
 const SCREENS = {
   INPUT: "INPUT",
@@ -58,10 +58,7 @@ function App() {
       {currentScreen !== HOME_SCREEN && <button onClick={() => setCurrentScreen(HOME_SCREEN)}>Home</button>}
       {currentScreen === SCREENS.INPUT && <InputScreen defaultValue={currentInput} onInputChange={handleInputChange} onInputSubmit={handleInputSubmit} /> }
       {currentScreen === SCREENS.GENERATION && <GenerationScreen generator={() => generationModel.getSentence()} onSave={saveOutput} /> }
-      {/* <SavedOutputScreen savedOutput={savedOutput} /> */}
-      <ul>
-        {savedOutput.map((output, index) => <li key={`${output}${index}`}>{output}</li>)}
-      </ul>
+      <SavedOutputScreen savedOutput={savedOutput} />
     </div>
   );
 }
