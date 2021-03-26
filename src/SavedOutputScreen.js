@@ -1,10 +1,19 @@
 import PropTypes from 'prop-types';
 
+import "./SavedOutputScreen.css"
+
+const SavedOutputItem = ({ output }) => {
+  return (
+    <div className="saved-output-item"><p>{output}</p></div>
+  )
+
+}
+
 const SavedOutputScreen = ({ savedOutput }) => {
     return (
-      <ul>
-        {savedOutput.map((output, index) => <li key={`${output}${index}`}>{output}</li>)}
-      </ul>
+      <div className="saved-output-container">
+        {savedOutput.map((output, index) => <SavedOutputItem key={`${output}${index}`} output={output} />)}
+      </div>
     )
 }
 

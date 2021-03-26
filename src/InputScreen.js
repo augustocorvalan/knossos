@@ -10,7 +10,6 @@ const InputScreen = ({ defaultValues = [], onInputChange, onInputSubmit }) => {
         const value = event.target.value 
         const newInputs = Array.from(inputs)
         newInputs[index] = value
-        console.log("inputss", index, newInputs)
         setInputs(newInputs)
     }
     return (
