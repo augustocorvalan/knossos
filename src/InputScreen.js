@@ -2,7 +2,7 @@ import {useState, useEffect} from 'react'
 import PropTypes from 'prop-types';
 
 const InputScreen = ({ defaultValues = [], onInputChange, onInputSubmit }) => {
-    const [inputs, setInputs] = useState([])
+    const [inputs, setInputs] = useState(defaultValues)
 
     useEffect(() => onInputChange(inputs), [inputs])
 
