@@ -1,4 +1,9 @@
+.generated-container {
+    max-width: 768px;
+    margin: 0 auto;
+}
 .generated-text {
     text-shadow: 2px 2px 2px #cccccc;
     font-size: 1.5rem;
+    line-height: 2;
 }

@@ -15,7 +15,7 @@ const GenerationScreen = ({ generator, onSave }) => {
     }
 
     return (
-        <div>
+        <div className="generated-container">
             <p className="generated-text">{currentlyGenerated}</p>
             <button onClick={generateNewText}>Generate</button>
             <button onClick={() => onSave(currentlyGenerated)}>Save</button>
