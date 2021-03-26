@@ -9,10 +9,6 @@ Inspired by the Jorge Luis Borges' story _The Garden of Forking Paths_, Knossos 
 
 The webapp is broken into two screens, one for inputting base text and the other for new text generation. Ideally these would be in the same page but since part of this initial project is meant to showcase multiple page webapps for a pairing interview the multi-page structure is a good place to start. 
 
-### Markov model
-
-The 
-
 # TODOs
 - [ ] be able to input arbitrary number of texts
 - [ ] add history to each input so you can go back after you change an input
