@@ -48,6 +48,7 @@ function App() {
   return (
     <div className="App">
       <Header />
+      {currentScreen !== HOME_SCREEN && <button onClick={() => setCurrentScreen(HOME_SCREEN)}>Revise Inputs</button>}
       {currentScreen === SCREENS.INPUT && <InputScreen defaultValues={currentInputs} onInputChange={setCurrentInputs} onInputSubmit={handleInputSubmit} /> }
       {currentScreen === SCREENS.GENERATION && <GenerationScreen generator={() => generationModel.getSentence()} onSave={saveOutput} /> }
       <SavedOutputScreen savedOutput={savedOutput} />
